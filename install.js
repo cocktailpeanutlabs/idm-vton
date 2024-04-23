@@ -33,13 +33,12 @@ module.exports = {
         ]
       }
     },
-    //  Uncomment this step to add automatic venv deduplication (Experimental)
-    //  {
-    //    method: "fs.link",
-    //    params: {
-    //      venv: "env"
-    //    }
-    //  },
+    {
+      method: "fs.link",
+      params: {
+        venv: "env"
+      }
+    },
     {
       method: "notify",
       params: {
