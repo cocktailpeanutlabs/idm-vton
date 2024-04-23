@@ -2,7 +2,7 @@ const path = require('path')
 module.exports = {
   version: "1.5",
   title: "IDM-VTON",
-  description: "",
+  description: "Improving Diffusion Models for Authentic Virtual Try-on in the Wild https://huggingface.co/spaces/yisol/IDM-VTON",
   icon: "icon.png",
   menu: async (kernel) => {
     let installing = await kernel.running(__dirname, "install.js")
