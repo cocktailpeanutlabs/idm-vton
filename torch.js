@@ -13,13 +13,14 @@ module.exports = {
       },
       "next": null
     },
+    // windows nvidia
     {
       "when": "{{platform === 'win32' && gpu === 'nvidia'}}",
       "method": "shell.run",
       "params": {
         "venv": "{{args && args.venv ? args.venv : null}}",
         "path": "{{args && args.path ? args.path : '.'}}",
-        "message": "pip install torch torchvision torchaudio {{args && args.xformers ? 'xformers' : ''}}  --index-url https://download.pytorch.org/whl/cu121"
+        "message": "pip install torch==2.3.1 torchvision==0.18.1 torchaudio==2.3.1 {{args && args.xformers ? 'xformers' : ''}}  --index-url https://download.pytorch.org/whl/cu121"
       }
     },
     // windows amd
@@ -29,7 +30,7 @@ module.exports = {
       "params": {
         "venv": "{{args && args.venv ? args.venv : null}}",
         "path": "{{args && args.path ? args.path : '.'}}",
-        "message": "pip install torch-directml"
+        "message": "pip install torch-directml torchvision torchaudio numpy==1.26.4"
       }
     },
     // windows cpu
@@ -39,7 +40,7 @@ module.exports = {
       "params": {
         "venv": "{{args && args.venv ? args.venv : null}}",
         "path": "{{args && args.path ? args.path : '.'}}",
-        "message": "pip install torch torchvision torchaudio"
+        "message": "pip install torch==2.3.1 torchvision==0.18.1 torchaudio==2.3.1 --index-url https://download.pytorch.org/whl/cpu"
       }
     },
     // apple mac
@@ -49,7 +50,7 @@ module.exports = {
       "params": {
         "venv": "{{args && args.venv ? args.venv : null}}",
         "path": "{{args && args.path ? args.path : '.'}}",
-        "message": "pip install torch torchvision torchaudio"
+        "message": "pip install torch==2.3.1 torchvision==0.18.1 torchaudio==2.3.1"
       }
     },
     // intel mac
@@ -69,7 +70,7 @@ module.exports = {
       "params": {
         "venv": "{{args && args.venv ? args.venv : null}}",
         "path": "{{args && args.path ? args.path : '.'}}",
-        "message": "pip install torch torchvision torchaudio {{args && args.xformers ? 'xformers' : ''}}"
+        "message": "pip install torch==2.3.1 torchvision==0.18.1 torchaudio==2.3.1 {{args && args.xformers ? 'xformers' : ''}}  --index-url https://download.pytorch.org/whl/cu121"
       }
     },
     // linux rocm (amd)
@@ -79,17 +80,17 @@ module.exports = {
       "params": {
         "venv": "{{args && args.venv ? args.venv : null}}",
         "path": "{{args && args.path ? args.path : '.'}}",
-        "message": "pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/rocm5.7"
+        "message": "pip install torch==2.3.1 torchvision==0.18.1 torchaudio==2.3.1 --index-url https://download.pytorch.org/whl/rocm6.0"
       }
     },
     // linux cpu
     {
-      "when": "{{platform === 'linux' && (gpu !== 'amd' && gpu !=='amd')}}",
+      "when": "{{platform === 'linux' && (gpu !== 'amd' && gpu !=='nvidia')}}",
       "method": "shell.run",
       "params": {
         "venv": "{{args && args.venv ? args.venv : null}}",
         "path": "{{args && args.path ? args.path : '.'}}",
-        "message": "pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu"
+        "message": "pip install torch==2.3.1 torchvision==0.18.1 torchaudio==2.3.1 --index-url https://download.pytorch.org/whl/cpu"
       }
     }
   ]
